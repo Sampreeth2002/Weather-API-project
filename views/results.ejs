@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: none;
+        border: none;
+        outline: none;
+      }
+
+      body {
+        background-image: url("http://www.wallpaperup.com/uploads/wallpapers/2013/12/19/199256/8d643bff2e4bf156dbbec40e15de27c8.jpg");
+      }
+
+      .box1 {
+        background: transparent;
+        width: 420px;
+        height: 242.8px;
+        text-align: center;
+        margin: 100px 550px;
+        font-size: large;
+        color: white;
+        font-family: "Roboto", "Open Sans", sans-serif;
+        font-size: 34px;
+        font-weight: 300;
+        line-height: 0.5;
+      }
+
+      #one {
+        margin-top: 20px;
+      }
+
+      #two {
+        margin-right: 20px;
+      }
+      .jumb {
+        color: #bfc1c8;
+        font-family: "Roboto", "Open Sans", sans-serif;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 1.5;
+        padding: 20px;
+        background-color: black;
+        padding-left: 75px;
+        background: transparent;
+      }
+      a {
+        text-decoration: none;
+        color: #bfc1c8;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/a6d27a9f7c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="jumb">
+      <a href="/"><i class="fas fa-cloud"></i> WeaTher</a>
+    </div>
+    <div class="box1">
+      <p style="color: yellow;"><%= results.location.name %></p>
+      <p style="font-size: 50px;" id="one">
+        <%= results.current.temp_c %> °C <img src="<%=
+        results.current.condition.icon %>"
+      </p>
+      <p><%= results.current.condition.text %></p>
+      <p style="font-size: 25px;">
+        <span id="two"
+          ><i class="fas fa-wind"></i> <%=results.current.wind_kph %> KmpH</span
+        >
+        <i class="fas fa-umbrella"></i> <%= results.current.precip_mm %> mm
+      </p>
+      <p style="color: #a59132;">
+        <span><%=results.forecast.forecastday[0].day.maxtemp_c %> °C</span
+        >/<span style="font-size: 28px;"
+          ><%=results.forecast.forecastday[0].day.mintemp_c %> °C</span
+        >
+      </p>
+    </div>
+  </body>
+</html>

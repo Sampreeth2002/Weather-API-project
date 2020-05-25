@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../public/style.css" />
+    <style>
+      * {
+        margin: none;
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+        background-image: url("http://3.bp.blogspot.com/-e2ugxu0DORQ/UQeI9rPqh6I/AAAAAAAAZFI/lYniMvQLvbo/s1600/manhattan_bridge_at_night_wallpaper_-_1920x1200.jpg");
+      }
+      #ofrm {
+        background: transparent;
+        padding: 50px;
+        /* width: 1080px;
+        height: 20.8px; */
+        margin-top: 50px;
+        margin-left: 280px;
+        color: white;
+        text-align: center;
+      }
+      .jumb {
+        color: #bfc1c8;
+        font-family: "Roboto", "Open Sans", sans-serif;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 1.5;
+        padding: 20px;
+        background-color: black;
+        padding-left: 75px;
+        background: transparent;
+      }
+      .input1 {
+        width: 1100px;
+        padding: 18.8px;
+        margin-top: -280px;
+        margin-left: -250px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        color: white;
+        background: transparent;
+      }
+
+      .btn1 {
+        border: none;
+        background: #009ad8;
+        border-radius: 10px;
+        color: 30px;
+        padding: 10px;
+        text-align: center;
+        width: 100px;
+        height: 40px;
+        color: white;
+      }
+
+      .btn2 {
+        height: 70px;
+        width: 220px;
+        color: white;
+        background: #009ad8;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      #form2 {
+        background: transparent;
+        text-align: center;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/a6d27a9f7c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="jumb">
+      <i class="fas fa-cloud"></i>
+      WeaTher
+    </div>
+
+    <form action="/results" method="GET" id="ofrm">
+      <input
+        type="text"
+        name="city"
+        placeholder="Enter your City"
+        class="input1"
+        style="font-size: 40px;"
+      />
+      <button class="btn1">Submit</button>
+    </form>
+
+    <form action="/link" id="form2" method="GET">
+      <input style="display: none;" type="text" name="lat" id="lat" />
+      <br />
+      <input style="display: none;" type="text" name="long" id="lng" /><br />
+      <!-- <h1 style="background: transparent; color: yellowgreen; font-size: 45px;">
+        GET YOUR LIVE LOCATION WEATHER
+      </h1> -->
+      <br />
+      <button class="btn2">LIVE LOCATION WEATHER</button>
+    </form>
+    <script>
+      var lng = "l";
+      var lat = "la";
+      function displayLocationInfo(position) {
+        lng = position.coords.longitude;
+        lat = position.coords.latitude;
+
+        document.getElementById("lat").value = lat;
+        document.getElementById("lng").value = lng;
+        console.log(`longitude: ${lng} | latitude: ${lat}`);
+      }
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(displayLocationInfo);
+      }
+    </script>
+  </body>
+</html>
